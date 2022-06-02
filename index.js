@@ -2,7 +2,7 @@ let container = document.getElementById("container");
 let form = document.getElementById("form");
 let command = document.getElementById("command-prompt");
 
-let path = "user@Segfault-Project:/home/user$"
+let path = "<span class=\"user\">user</span>@<span class=\"domain\">Segfault-Project</span>:<span class=\"path\">/home/user</span>$"
 function checkIn(commandName)
 {
     for (let c of commands) 
@@ -31,18 +31,31 @@ function findIndex(commandName)
 
 function getCommand(commandName)
 {
-    let header = `<div>${path} ${commandName}</div>`;
+    let header = `<div class="command-header">${path} <span class="command">${commandName}</span></div>`;
     if(!checkIn(commandName))
     {
-        let err = `Command ${commandName} not found! Try 'help' to see a list of all commands.`
-        return `${header}<div>${err}<\div>`;
+        let err = `Command ${commandName} not found! Try type '<span class = "command">help</span>' to see a list of all the available commands.`
+        return `${header}<div class = "info">${err}</div>`;
     }
     let i = findIndex(commandName);
-    return `${header}<div>${commands[i].exec()}`;
+    return `${header}<div>${commands[i].exec()}</div>`;
 }
 
-form.addEventListener("submit", e => {
+form.addEventListener("click", () => {
+    command.focus();
+});
+
+command.addEventListener("keyup", e => {
     e.preventDefault();
-    container.innerHTML += getCommand(command.value);
-    command.value = "";
+    if(e.key === "Enter")
+    {
+        let tmp = getCommand(command.textContent);
+        container.innerHTML += tmp;
+        command.textContent = "";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
 }, false);
+
+command.focus();
+let i = findIndex("welcome");
+container.innerHTML += `<div>${commands[i].exec()}`
