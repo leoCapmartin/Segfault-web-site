@@ -47,7 +47,7 @@ function getCommand(commandName)
     return `${header}<div>${commands[i].exec()}</div>`;
 }
 
-form.addEventListener("click", () => {
+window.addEventListener("click", () => {
     command.focus();
 });
 
