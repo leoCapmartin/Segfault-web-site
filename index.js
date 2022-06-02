@@ -7,8 +7,6 @@ let path = "<span class=\"user\">user</span>@<span class=\"domain\">Segfault-Pro
 function focusOnCommand()
 {
     command.focus();
-    const end = command.textContent.length;
-    command.setSelectionRange(end, end);
 }
 function checkIn(commandName)
 {
