@@ -31,6 +31,12 @@ function findIndex(commandName)
 
 function getCommand(commandName)
 {
+    if(commandName == "clear")
+    {
+        let i = findIndex(commandName);
+        commands[i].exec();
+        return "";
+    }
     let header = `<div class="command-header">${path} <span class="command">${commandName}</span></div>`;
     if(!checkIn(commandName))
     {
