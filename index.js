@@ -3,6 +3,13 @@ let form = document.getElementById("form");
 let command = document.getElementById("command-prompt");
 
 let path = "<span class=\"user\">user</span>@<span class=\"domain\">Segfault-Project</span>:<span class=\"path\">/home/user</span>$"
+
+function focusOnCommand()
+{
+    command.focus();
+    const end = command.textContent.length;
+    command.setSelectionRange(end, end);
+}
 function checkIn(commandName)
 {
     for (let c of commands) 
@@ -48,7 +55,7 @@ function getCommand(commandName)
 }
 
 window.addEventListener("click", () => {
-    command.focus();
+    focusOnCommand();
 });
 
 command.addEventListener("keyup", e => {
@@ -62,6 +69,6 @@ command.addEventListener("keyup", e => {
     }
 }, false);
 
-command.focus();
+focusOnCommand();
 let i = findIndex("welcome");
 container.innerHTML += `<div>${commands[i].exec()}`
