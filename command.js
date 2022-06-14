@@ -45,8 +45,8 @@ function files(command)
     let closeSpan = "</span>"
     msg += p + getWhitespace("Specification:", maxSpace) + `<a ${classInfo} href=\"Cahier des charges.pdf\" target=\"_blank\">specifications.pdf</a>${endP}`;
     msg += p + getWhitespace("First Report:", maxSpace) + `<a ${classInfo} href=\"Rapport1.pdf\" target=\"_blank\">Report1.pdf</a>${endP}`;
-    msg += p + getWhitespace("Second Report:", maxSpace) + `<span ${classInfo}>WIP${closeSpan}${endP}`;
-    msg += p + getWhitespace("Final Report:", maxSpace) + `<span ${classInfo}>WIP${closeSpan}${endP}`;
+    msg += p + getWhitespace("Second Report:", maxSpace) + `<a ${classInfo} href=\"Rapport2.pdf\" target=\"_blank\">Report2.pdf</a>${endP}`;
+    msg += p + getWhitespace("Final Report:", maxSpace) + `<a ${classInfo} href=\"Rapport_final.pdf\" target=\"_blank\">Final_Report.pdf</a>${endP}`;
     msg += p + getWhitespace("Project executable:", maxSpace) + `<a ${classInfo} href=\"simulation\" target=\"_blank\" download>Project</a>${endP}`;
     return msg;
 }
